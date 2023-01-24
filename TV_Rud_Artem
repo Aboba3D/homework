@@ -1,0 +1,93 @@
+{
+    
+
+    internal class TV
+    {
+        public int channel1 = 1;
+        public int Lim = 10;
+        public TV()
+        {
+            Console.Write("Введите 0 чтобы включить телевизор: ");
+            int cba = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; cba != 0; i++)
+            {
+                if (cba != 0)
+                {
+                    Console.WriteLine("Повторите попытку!!!");
+                    Console.Write("Введите 0 чтобы включить телевизор: ");
+                    cba = Convert.ToInt32(Console.ReadLine());
+                }
+            }
+            int abc;
+            do
+            {
+                Console.WriteLine("\n -------------------------------");
+                Console.WriteLine("\nТекущий канал: " + channel1);
+                Console.WriteLine("\nЛимит каналов: " + Lim);
+                Console.WriteLine("\nВведите 1 чтобы переключить на след. канал\nВведите 2 чтобы переключить на прошл. канал\nВведите 3 чтобы выбрать канал самостоятельно\nВведите 4 чтобы выключить телик");
+                Console.Write("\nВы выбрали: ");
+                abc = Convert.ToInt32(Console.ReadLine());
+                if (abc == 0 || abc > 4)
+                {
+                    Console.WriteLine("\nНет такой команды \nПовторите попытку!!!: ");
+                    Console.WriteLine("\n -------------------------------");
+                    Console.WriteLine("\nТекущий канал: " + channel1);
+                    Console.WriteLine("\nЛимит каналов: " + Lim);
+                    Console.WriteLine("\n1 - следующий канал\n2 - прошлый канал\n3 - выбор канала\n4 - выключить телик");
+                    Console.Write("\nВы выбрали: ");
+                    abc = Convert.ToInt32(Console.ReadLine());
+                }
+                if (abc == 1)
+                {
+                    NC();
+                }
+                if (abc == 2)
+                {
+                    PC();
+                }
+                if (abc == 3)
+                {
+                    Console.Write("\nУкажите номер канала: ");
+                    int number = Convert.ToInt32(Console.ReadLine());
+                    M(number);
+                }
+            }
+            while (abc != 4);
+        }
+        public void NC()
+        {
+            channel1++;
+            if (channel1 > Lim)
+                channel1 = 1;
+        }
+        public void PC()
+        {
+            channel1--;
+            if (channel1 < 1)
+                channel1 = Lim;
+        }
+        public void M(int number1)
+        {
+            channel1 = number1;
+            if (number1 > Lim)
+            {
+                Console.WriteLine("\nКаналов со значением больше 10 нету\nВас автоматом переносит на 1 канал");
+                channel1 = 1;
+            }
+            if (number1 <= 0)
+            {
+                Console.WriteLine("\nКаналов со значением меньше 1 нету\nВас автоматом переносит на 10 канал");
+                channel1 = Lim;
+            }
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            TV tv = new TV();
+        }
+    }
+
+}
+
