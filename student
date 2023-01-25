@@ -1,0 +1,53 @@
+class Student
+    {
+        public string name;
+        public int course;
+        public bool step;
+        public Student(string n, int a, bool s) 
+        {
+            this.step = s;
+            this.name = n;
+            this.course = a;
+        }
+        public void InFo()
+        {
+            Console.WriteLine($"\nИмя {name}\nКурс {course}\nСтепендия {step}");
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Введите имя студента: ");
+            string n = Convert.ToString(Console.ReadLine());
+            Console.WriteLine("\nВведите курс на котором учится студент: ");
+            int a = Convert.ToInt32(Console.ReadLine());
+            for(int i = 0;a>4;i++)
+            {
+                Console.WriteLine("\nТакого года обучения в КУПК нету\nВведите курс на котором учится студент: ");
+                a = Convert.ToInt32(Console.ReadLine());
+            }
+            Console.WriteLine("\nВведите 1 если он получает степендию\nВведите 2 если он не получает степендию");
+            Console.WriteLine("\nВаш выбор: ");
+            int g = Convert.ToInt32(Console.ReadLine());
+            for(int i = 0; g != 1 && g != 2 ;i++)
+            {
+                Console.WriteLine("\nОшибка!!!\nВведите 1 если он получает степендию\nВведите 2 если он не получает степендию");
+                Console.WriteLine("\nВаш выбор: ");
+                g = Convert.ToInt32(Console.ReadLine());
+            }
+            bool s = false;
+            if (g == 1)
+            {
+                s = true;
+            }
+            if (g == 2)
+            {
+                s = false;
+            }
+            Student ArtemRud = new Student ( n, a, s );
+            ArtemRud.InFo();
+            Console.ReadKey();
+        }
+    }
+}
