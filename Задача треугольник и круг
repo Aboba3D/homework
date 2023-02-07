@@ -1,0 +1,120 @@
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Введите 0 чтобы включить программу: ");
+            int cba = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; cba != 0; i++)
+            {
+                if (cba != 0)
+                {
+                    Console.WriteLine("Повторите попытку!!!");
+                    Console.Write("Введите 0 чтобы включить телевизор: ");
+                    cba = Convert.ToInt32(Console.ReadLine());
+                }
+            }
+                    int abc;
+                    for (int i = 0; i<=0; i++)
+                      {
+                    Console.WriteLine("Выбирите: \n 1 - Треугольник\n 2 - Окружность");
+                    Console.Write("Ваш выбор: ");
+                    abc = Convert.ToInt32(Console.ReadLine());
+                    if (abc <= 0 || abc > 2)
+                    {
+                        Console.WriteLine("Повторите попытку!!!");
+                        abc = Convert.ToInt32(Console.ReadLine());
+                    }
+                    if (abc == 1)
+                    {
+                        Console.Write("Введите высоту треугольника: ");
+                        int high = Convert.ToInt32(Console.ReadLine());
+                        Treug treug = new Treug { High = high };
+                        treug.Draw();
+                    }
+                    if(abc == 2)
+                    {
+                    Console.Write("Введите размер окружности: ");
+                    int rokr = Convert.ToInt32(Console.ReadLine());
+                    okr Okr = new okr { ROKR = rokr};
+                    Okr.Draw();
+                    }
+                    }
+                Console.ReadLine();
+            }
+        }
+        class fig
+        {
+        }
+        class Treug : fig
+        {
+            internal int hig;
+            public int High
+            {
+                get
+                {
+                    return hig;
+                }
+                set
+                {
+                    hig = value;
+                }
+            }
+            public void Draw()
+            {
+                for (int i = 5; i < hig + 5; i++)
+                {
+                    Console.SetCursorPosition(hig + 5 - i, i + 1);
+                    for (int j = 0; j <= (i - 5) * 2; j++)
+                    {
+                        Console.Write("o");
+                    }
+                    Console.WriteLine();
+                }
+            }
+        }
+        class okr : fig
+        {
+            internal double rokr;
+            public double ROKR
+            {
+                get 
+                {
+                    return rokr;
+                }
+                set 
+                    {
+                rokr = value;
+                    }
+            }
+            public void Draw()
+            {
+                bool fill = true;
+                double rin = rokr - 0.4;
+                double rout = rokr + 0.4;
+
+                Console.WriteLine();
+                for (double y = rokr; y >= -rokr; --y)
+                {
+                    for (double x = -rokr; x < rout; x += 0.5)
+                    {
+                        double value = x * x + y * y;
+                        if (value >= rin * rin && value <= rout * rout)
+                        {
+                            Console.Write("o");
+                        }
+                        else if (fill && value < rin * rin && value < rout * rout)
+                        {
+                            Console.Write("o");
+                        }
+                        else
+                        {
+                            Console.Write(" ");
+                        }
+                    }
+                    Console.WriteLine();
+                }
+            }
+        }
+    }
+
