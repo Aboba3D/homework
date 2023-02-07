@@ -1,0 +1,66 @@
+ class numb
+    {
+        public int n1;
+        public int n2;
+        public numb(int a)
+        {
+            n1 = a;
+        }
+        public numb()
+        {
+        }
+        public numb(int b, int a)
+        {
+            n2 = b;
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int ODorDV;
+            Console.Write("Введите 0 чтобы включить программу: ");
+            int cba = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; cba != 0; i++)
+            {
+                if (cba != 0)
+                {
+                    Console.WriteLine("Повторите попытку!!!");
+                    Console.Write("Введите 0 чтобы включить прогамму: ");
+                    cba = Convert.ToInt32(Console.ReadLine());
+                }
+            }
+            numb Numb = new numb();
+                do
+                {
+                    Console.WriteLine("\n 1 - Передачей одного аргумента\n 2 - Передачей двух аргументов\n 3 - Выключить программу");
+                    Console.Write("Вы хотите :");
+                    ODorDV = int.Parse(Console.ReadLine());
+                    if (ODorDV <= 0 || ODorDV > 3)
+                    {
+                    Console.WriteLine("Повторите попытку: ");
+                    Console.WriteLine("\n 1 - Передачей одного аргумента\n 2 - Передачей двух аргументов\n 3 - Выключить программу");
+                    Console.Write("Вы хотите :");
+                    ODorDV = Convert.ToInt32(Console.ReadLine());
+                    }
+                    if (ODorDV == 1)
+                    {
+                        Console.Write("Введите аргумент (a) :");
+                        int a = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine($"Аргумент (a) = {a}");
+                    }
+                    if (ODorDV == 2)
+                    {
+                        Console.Write("Введите аргумент (a):");
+                        int a = Convert.ToInt32(Console.ReadLine());
+                        Console.Write("Введите аргумент (b) :");
+                        int b = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine($"Аргумент (a and b) = {a} and {b}");
+                    }
+
+                } while (ODorDV !=3);
+            Console.ReadKey();
+        }
+    }
+}
+
