@@ -1,0 +1,78 @@
+class Massiv
+    {
+        int[] massiv;
+        public int Length;
+
+        public Massiv(int lenght)
+        {
+            massiv = new int[lenght];
+            Length = lenght;
+        }
+        public int this[int setget]
+        {
+            set
+            {
+                massiv[setget] = value;
+            }
+            get
+            {
+                return massiv[setget];
+            }
+        }
+        public int Sr_Arifm()
+        {
+            int sum = 0;
+            for (int i = 0; i < massiv.Length; i++)
+            {
+                sum += massiv[i];
+            }
+            return sum / massiv.Length;
+        }
+        public int KolOtr()
+        {
+            int otr=0;
+            for (int i = 0; i < massiv.Length; i++)
+            {
+                if (massiv[i]<0)
+                {
+                    otr++;
+                }
+            }
+            return otr;
+        }
+        public int KolPol()
+        {
+            int pol = 0;
+            for (int i = 0; i < massiv.Length; i++)
+            {
+                if (massiv[i]>=0)
+                {
+                    pol++; ;
+                }
+            }
+            return pol;
+        }
+    }
+    class Program
+    {
+        static void Main()
+        {
+            Random rnd = new Random();
+            int a = rnd.Next(1, 10);
+            Massiv masv = new Massiv(a);
+            Console.WriteLine("Ваш массив: ");
+            for (int i = 0; i < masv.Length; i++)
+            {
+                masv[i] = rnd.Next(-10, 10);
+                Console.Write("{0}\t", masv[i]);
+            }
+            Console.WriteLine("\n\nДлина массива: " + masv.Length);
+            Console.WriteLine("\nСр. арифм. массива: {0}\t", masv.Sr_Arifm());
+            Console.WriteLine("\nКол. положительных значений массива: {0}", masv.KolPol());
+            Console.WriteLine("\nКол. отрицательных значений массива: {0}", masv.KolOtr());
+            Console.ReadLine();
+
+        }
+
+    }
+}
