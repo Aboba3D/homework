@@ -1,0 +1,70 @@
+class Massiv
+    {
+        int[] massiv;           //Не забыть спросить чем это    (     int[] massiv;      ) отличается от (     static int artem332323(int[] a)    )
+        public int Length;
+    
+        public Massiv(int lenght)
+        {
+            massiv =new int [lenght];
+            Length = lenght;
+            
+        }
+        public int this[int setget]
+        {
+            set
+            {
+                massiv[setget] = value;
+            }
+            get
+            {
+                return massiv [setget];
+            }
+        }
+        public int Min()
+        {
+            int min = massiv[0];
+            for (int i = 0; i < massiv.Length; i++)
+            {
+                if (min > massiv[i])
+                {
+                    min = massiv[i];
+                }
+            }
+            return min;
+        }
+        public int Max()
+        {
+            int max = massiv[0];
+            for (int i = 0; i < massiv.Length; i++)
+            {
+                if (max < massiv[i])
+                {
+                    max = massiv[i];
+                }
+            }
+            return max;
+        }
+    }
+    class Program
+    {
+        static void Main()
+        {
+            Random rnd = new Random();
+            int a = rnd.Next(1, 10);
+            Massiv masv = new Massiv(a);
+            Console.WriteLine("Ваш массив: ");
+            for (int i = 0; i < masv.Length; i++)
+            {
+                masv[i] = rnd.Next(1, 10);
+                Console.Write("{0}\t", masv[i]);
+            }
+
+            Console.WriteLine("\nДлина массива: " + masv.Length);
+            Console.WriteLine("\nMin значение массива: {0}\t", masv.Min());
+            Console.WriteLine("\nMax значение массива: {0}", masv.Max());
+            Console.ReadLine();
+
+        }
+
+    }
+}
