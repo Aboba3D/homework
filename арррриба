@@ -1,0 +1,105 @@
+amespace WindowsFormsApp11
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+            label3.Text = "Можете \nкупить $:";
+            textBox4.ReadOnly = true;
+            textBox5.ReadOnly = true;
+            button2.Enabled = false;
+            button3.Enabled = false;
+        }
+
+
+
+        private void labelDol_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            this.textBox1.Clear();
+            this.textBox2.Clear();
+            this.textBox3.Clear();
+            this.textBox4.Clear();
+            this.textBox5.Clear();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            this.Close();
+
+        }
+
+        public void button2_Click(object sender, EventArgs e)
+        {
+
+            if (textBox1.Text == "0" || textBox2.Text == "0" || textBox3.Text == "0")
+            {
+                MessageBox.Show("Вы ввели некоррекные данные");
+                Close();
+            }
+            double rovnoDol, rovnoEur, dollar, euro, sum;
+            dollar = Convert.ToDouble(textBox1.Text);
+            euro = Convert.ToDouble(textBox2.Text);
+            sum = Convert.ToDouble(textBox3.Text);
+            rovnoDol = sum / dollar;
+            rovnoEur = sum / euro;
+            textBox4.Text = Convert.ToString(rovnoDol);
+            textBox5.Text = Convert.ToString(rovnoEur);
+
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar) ||
+            (!string.IsNullOrEmpty(textBox1.Text) && e.KeyChar == ','))
+            {
+                return;
+            }
+
+            e.Handled = true;
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar) ||
+            (!string.IsNullOrEmpty(textBox1.Text) && e.KeyChar == ','))
+            {
+                return;
+            }
+
+            e.Handled = true;
+        }
+
+        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar) ||
+            (!string.IsNullOrEmpty(textBox1.Text) && e.KeyChar == ','))
+            {
+                return;
+            }
+
+            e.Handled = true;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if(textBox1.Text.Length == 0 && textBox2.Text.Length == 0&& textBox3.Text.Length == 0)
+            {
+                button2.Enabled=false;
+                button3.Enabled = false;
+            }
+            else
+            {
+                button2.Enabled=true;
+                button3.Enabled=true;
+            }
+        }
+    }
+}
