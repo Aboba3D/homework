@@ -1,0 +1,189 @@
+namespace WindowsFormsApp14
+{
+    public partial class Form1 : Form
+    {
+        int a = 0;
+        public Form1()
+        {
+            InitializeComponent();
+  
+            comboBox1.KeyPress += (sender, e) => e.Handled = true;
+
+            comboBox1.Items.Insert(0,"1988 Год");
+            comboBox1.Items.Insert(1,"1989 Год");
+            comboBox1.Items.Insert(2,"1990 Год");
+            comboBox1.Items.Insert(3,"1991 Год");
+            comboBox1.Items.Insert(4,"1992 Год");
+            comboBox1.Items.Insert(5,"1993 Год");
+            comboBox1.Items.Insert(6,"1994 Год");
+            comboBox1.Items.Insert(7,"1995 Год");
+            comboBox1.Items.Insert(8,"1996 Год");
+            comboBox1.Items.Insert(9,"1997 Год");
+            comboBox1.Items.Insert(10,"1998 Год");
+            comboBox1.Items.Insert(11,"1999 Год");
+            comboBox1.Items.Insert(12,"2000 Год");
+            comboBox1.Items.Insert(13,"2001 Год");
+            comboBox1.Items.Insert(14,"2002 Год");
+            comboBox1.Items.Insert(15,"2003 Год");
+            comboBox1.Items.Insert(16,"2004 Год");
+            comboBox1.Items.Insert(17,"2005 Год");
+            comboBox1.Items.Insert(18,"2006 Год");
+            comboBox1.Items.Insert(19,"2007 Год");
+            comboBox1.Items.Insert(20,"2008 Год");
+            comboBox1.Items.Insert(21,"2009 Год");
+            comboBox1.Items.Insert(22,"2010 Год");
+            comboBox1.Items.Insert(23,"2011 Год");
+            comboBox1.Items.Insert(24,"2012 Год");
+            comboBox1.Items.Insert(25,"2013 Год");
+            comboBox1.Items.Insert(26,"2014 Год");
+            comboBox1.Items.Insert(27,"2015 Год");
+            comboBox1.Items.Insert(28,"2016 Год");
+            comboBox1.Items.Insert(29,"2017 Год");
+            comboBox1.Items.Insert(30,"2018 Год");
+            comboBox1.Items.Insert(31,"2019 Год");
+            comboBox1.Items.Insert(32,"2020 Год");
+            comboBox1.Items.Insert(33,"2021 Год");
+            comboBox1.Items.Insert(34,"2022 Год");
+            comboBox1.Items.Insert(35,"2023 Год");
+           
+            comboBox1.SelectedIndex = 0;
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            if (comboBox1.SelectedIndex == 35)
+            {
+                label2.Text = "Сейчас год Зайца";
+            }
+            if (comboBox1.SelectedIndex == 0 || comboBox1.SelectedIndex == 12 || comboBox1.SelectedIndex == 24)
+            {
+                label2.Text = "Этот год был годом\n          Дракона";
+            }
+            if(comboBox1.SelectedIndex == 11 || comboBox1.SelectedIndex == 23)
+            {
+                label2.Text = "Этот год был годом\n          Зайца";
+            }
+            if (comboBox1.SelectedIndex == 1 || comboBox1.SelectedIndex == 13 || comboBox1.SelectedIndex == 25)
+            {
+                label2.Text = "Этот год был годом\n          Змеи";
+            }
+            if (comboBox1.SelectedIndex == 8 || comboBox1.SelectedIndex == 20 || comboBox1.SelectedIndex == 32)
+            {
+                label2.Text = "Этот год был годом\n          Крысы";
+            }
+            if (comboBox1.SelectedIndex == 9 || comboBox1.SelectedIndex == 21 || comboBox1.SelectedIndex == 33)
+            {
+                label2.Text = "Этот год был годом\n          Коровы";
+            }
+            if (comboBox1.SelectedIndex == 10 || comboBox1.SelectedIndex == 22 || comboBox1.SelectedIndex == 34)
+            {
+                label2.Text = "Этот год был годом\n          Тигра";
+            }
+            if (comboBox1.SelectedIndex == 2 || comboBox1.SelectedIndex == 14 || comboBox1.SelectedIndex == 26)
+            {
+                label2.Text = "Этот год был годом\n          Лошади";
+            }
+            if (comboBox1.SelectedIndex == 3 || comboBox1.SelectedIndex == 15 || comboBox1.SelectedIndex == 27)
+            {
+                label2.Text = "Этот год был годом\n          Овцы";
+            }
+            if (comboBox1.SelectedIndex == 4 || comboBox1.SelectedIndex == 16 || comboBox1.SelectedIndex == 28)
+            {
+                label2.Text = "Этот год был годом\n          Обезьяны";
+            }
+            if (comboBox1.SelectedIndex == 5 || comboBox1.SelectedIndex == 17 || comboBox1.SelectedIndex == 29)
+            {
+                label2.Text = "Этот год был годом\n          Курицы";
+            }
+            if (comboBox1.SelectedIndex == 6 || comboBox1.SelectedIndex == 18 || comboBox1.SelectedIndex == 30)
+            {
+                label2.Text = "Этот год был годом\n          Собаки";
+            }
+            if (comboBox1.SelectedIndex == 7 || comboBox1.SelectedIndex == 19 || comboBox1.SelectedIndex == 31)
+            {
+                label2.Text = "Этот год был годом\n          Свиньи";
+            }
+            if (comboBox1.SelectedIndex == 35)
+            {
+                button5teck.Enabled = false;
+            }
+            else
+            {
+                button5teck.Enabled = true;
+            }
+            if (comboBox1.SelectedIndex == 35)
+            {
+                button4Sled.Enabled = false;
+            }
+            else
+            {
+                button4Sled.Enabled = true;
+            }
+            if (comboBox1.SelectedIndex == 0)
+            {
+                button3Prosh.Enabled = false;
+            }
+            else
+            {
+                button3Prosh.Enabled = true;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            a++;
+            comboBox1.SelectedIndex = a;
+            if(a==35)
+            {
+                button4Sled.Enabled = false;
+            }
+            else
+            {
+                button4Sled.Enabled = true;
+            }
+            //прошлый след год
+        }
+
+        private void button3Prosh_Click(object sender, EventArgs e)
+        {
+            a--;
+            comboBox1.SelectedIndex = a;
+        }
+
+        private void button5teck_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button5teck_Click_1(object sender, EventArgs e)
+        {
+            comboBox1.SelectedIndex = 35;
+            a = 35;
+        }
+
+        private void button1random_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            int b=rnd.Next(0,35);
+            comboBox1.SelectedIndex =b;
+            a = b;
+        }
+    }
+}
