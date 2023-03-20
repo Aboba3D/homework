@@ -1,0 +1,12 @@
+ private void textBoxOper1_TextChanged(object sender, EventArgs e)
+        {
+
+            button1.Enabled = textBoxOper1.TextLength > 0 && textBoxOper2.TextLength > 0;
+           button2.Enabled = textBoxOper1.TextLength > 0 || textBoxOper2.TextLength > 0;
+        }
+
+        private void textBoxOper2_TextChanged(object sender, EventArgs e)
+        {
+            button1.Enabled = textBoxOper1.TextLength > 0 && textBoxOper2.TextLength > 0;
+            button2.Enabled = textBoxOper1.TextLength > 0 || textBoxOper2.TextLength > 0;
+        }
