@@ -1,0 +1,122 @@
+public partial class Kalendar : Form
+    {
+        int godiki;
+        public Kalendar()
+        {
+            InitializeComponent();
+            label_EtoGod.Text = "";//чтобы перемещать лабел 
+
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if (!Char.IsDigit(number) && number != 8)
+            {
+                e.Handled = true;
+            }
+            //Блок всего кроме цифр и backspace
+           
+        }
+
+        private void btn_exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            //Выход
+        }
+
+        private void btn_god_Click(object sender, EventArgs e)
+        {
+
+            if (textBox_god.TextLength <= 0 || textBox_god.TextLength > 4)    //Проверка textBox_god 
+            {
+                DialogResult result = MessageBox.Show(
+                "Некорректный год, исправьте",
+                "Внимание",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Warning,
+                MessageBoxDefaultButton.Button1,
+                MessageBoxOptions.DefaultDesktopOnly);
+                //Настройка МессагеБокса
+
+
+                if (result == DialogResult.OK) //Если нажмут Ok на MessageBox то TextB станет пустым
+                {
+                    textBox_god.Text = "";
+                }
+                if (result == DialogResult.Cancel) //Если нажмут Cancel на MessageBox то приложение выключится
+                {
+                    Application.Exit();
+                }
+                this.TopMost = true;
+            }
+
+            //ДАЛЬШЕ НЕ УДАЛЯТЬ АРТЁМУ ОТ АРТЁМА!!!
+            else
+            {
+                //массив стринг
+                string[] yearNames = { "Это год Обезьяны", "Это год Курицы", "Это год Собаки", "Это год Кабана", "Это год Крысы", "Это год Коровы", "Это год Тигра", "Это год Зайца", "Это год Дракона", "Это год Змеи", "Это год Лошади", "Это год Овцы" };
+                godiki = Convert.ToInt32(textBox_god.Text);
+                label_EtoGod.Text = yearNames[godiki % 12];//Высчитываю год и пишу его в лейбл
+                int babakapa = godiki % 12;//для вставки картинки
+                switch (babakapa) 
+                {
+                    case 0:
+                        //pictureBox1.Image = Image.FromFile(Сюда путь к макаке);
+                    break;
+                    case 1:
+                        //pictureBox1.Image = Image.FromFile(Сюда путь к курице);
+                    break;
+                    case 2:
+                        //pictureBox1.Image = Image.FromFile(Сюда путь к собаке);
+                    break;
+                    case 3:
+                        //pictureBox1.Image = Image.FromFile(Сюда путь к кабану);
+                    break;
+                    case 4:
+                        //pictureBox1.Image = Image.FromFile(Сюда путь к крысе);
+                    break;
+                    case 5:
+                        //pictureBox1.Image = Image.FromFile(Сюда путь к корове);
+                    break;
+                    case 6:
+                        //pictureBox1.Image = Image.FromFile(Сюда путь к тигру);
+                    break;
+                    case 7:
+                        //pictureBox1.Image = Image.FromFile(Сюда путь к Зайцу);
+                    break;
+                    case 8:
+                        //pictureBox1.Image = Image.FromFile(Сюда путь к Дракону);
+                    break;
+                    case 9:
+                        //pictureBox1.Image = Image.FromFile(Сюда путь к ЗМЕЕ);
+                    break;
+                    case 10:
+                        //pictureBox1.Image = Image.FromFile(Сюда путь к лошаде);
+                    break;
+                    case 11:
+                        //pictureBox1.Image = Image.FromFile(Сюда путь к овце);
+                    break;
+                }
+            }
+
+        }
+
+        private void textBox_god_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox_god.Text == "0")
+            {
+                textBox_god.Text = "1";
+            }
+            //Если Янка ебанётся и напишет 0
+
+            if(textBox_god.TextLength>4)
+            {
+                textBox_god.Text = textBox_god.Text.Remove(4); 
+                //Тут хотел не допустить ввод больше 4 знаков ,но вышло такое себе. Можешь удалить
+
+            }
+
+        }
+    }
+}
