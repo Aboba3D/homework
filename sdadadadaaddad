@@ -2,4 +2,32 @@
  Regex regex = new Regex("!");
             MatchCollection match = regex.Matches(abb);
             label1.Text = match.Count.ToString();
+            /////////////////////////////////////////
+  public partial class Form1 : Form
+    {
+        string abb = "abbb!!!";
+        int v = 0;
+        int a;
+        public Form1()
+        {
+            InitializeComponent();
+            label1.Text = $"{v}";
+            label2.Text = "dasSdada!";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            Regex regex = new Regex("!");
+            MatchCollection match = regex.Matches(abb);
+            label1.Text=match.Count.ToString();
+         
+             a = Convert.ToInt32(label1.Text);
+            label2.Text = $"{a}";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
             
+        }
+    }
