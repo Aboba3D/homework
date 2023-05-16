@@ -1,0 +1,5 @@
+ string add = "!!!"
+ Regex regex = new Regex("!");
+            MatchCollection match = regex.Matches(abb);
+            label1.Text = match.Count.ToString();
+            
